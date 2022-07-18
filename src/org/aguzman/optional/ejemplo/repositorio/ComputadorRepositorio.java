@@ -1,6 +1,8 @@
 package org.aguzman.optional.ejemplo.repositorio;
 
 import org.aguzman.optional.ejemplo.models.Computador;
+import org.aguzman.optional.ejemplo.models.Fabricante;
+import org.aguzman.optional.ejemplo.models.Procesador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,10 @@ public class ComputadorRepositorio implements Repositorio<Computador>{
     List<Computador>dataSource;
     public ComputadorRepositorio() {
         dataSource=new ArrayList<>();
-        dataSource.add(new Computador("Asus Rog","Strix G512"));
+        Procesador proc=new Procesador("I9-98880H",new Fabricante("Intel"));
+        Computador asus= new Computador("Asus Rog","Strix G512");
+        asus.setProcesador(proc);
+        dataSource.add(asus);
         dataSource.add(new Computador("Macbook Pro","MVVK2CI"));
 
     }
